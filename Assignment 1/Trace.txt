@@ -1,0 +1,108 @@
+Scenario 1: All Right-Handed Philosophers
+Parameters: 5 0 1 1 0
+
+Output:
+Philosopher 0 thinks for 1 units
+Philosopher 4 thinks for 1 units
+Philosopher 2 thinks for 1 units
+Philosopher 1 thinks for 1 units
+Philosopher 3 thinks for 1 units
+Philosopher 3 wants left chopstick
+Philosopher 4 wants left chopstick
+Philosopher 4 has left chopstick
+Philosopher 0 wants left chopstick
+Philosopher 2 wants left chopstick
+Philosopher 1 wants left chopstick
+Philosopher 1 has left chopstick
+Philosopher 3 has left chopstick
+Philosopher 0 has left chopstick
+Philosopher 2 has left chopstick
+
+Observations:
+- All philosophers began by thinking for 1 unit of time, consistent with the provided thinking time parameter.
+- Each philosopher then attempted to pick up their left chopstick. Given their right-handed preference, this behavior was expected as part of the setup prone to deadlock.
+- The provided output does not conclusively show a deadlock situation, but given the sequence of actions, a deadlock is a potential outcome if no philosopher can acquire both chopsticks to eat.
+
+Scenario 2: Mixed Handedness to Avoid Deadlock
+Parameters: 5 philosophers, 10 cycles, 1000 ms max thinking and eating times, mixed handedness (1)
+
+Observations:
+- The simulation demonstrates that introducing mixed handedness among philosophers effectively prevents deadlock. Each philosopher is observed to complete their cycles of thinking and eating without the program becoming stuck.
+- Philosophers are seen successfully alternating between acquiring left and right chopsticks, eating, and then releasing the chopsticks, indicative of an efficient resource sharing mechanism that the mixed handedness strategy facilitates.
+- Notably, the output shows continuous activity with no philosopher indefinitely waiting for a chopstick, contrasting sharply with scenarios where all philosophers have the same handedness and are prone to deadlock.
+
+Insights:
+- The mixed handedness approach disrupts the potential for a circular wait condition by ensuring that at least one philosopher can break the chain of holding and waiting for chopsticks, thus significantly reducing the likelihood of deadlock.
+- This scenario underscores the importance of carefully considering resource allocation strategies and their impact on system behavior in concurrent programming environments.
+
+Output:Philosopher 4 thinks for 206 units
+Philosopher 4 wants left chopstick
+Philosopher 4 has left chopstick
+Philosopher 4 wants right chopstick
+Philosopher 4 has right chopstick
+Philosopher 4 eats for 58 units
+Philosopher 4 releases right chopstick
+Philosopher 4 releases left chopstick
+Philosopher 3 thinks for 365 units
+Philosopher 3 wants left chopstick
+Philosopher 3 has left chopstick
+Philosopher 3 wants right chopstick
+Philosopher 3 has right chopstick
+Philosopher 4 thinks for 464 units
+Philosopher 2 thinks for 922 units
+Philosopher 2 wants left chopstick
+Philosopher 2 has left chopstick
+Philosopher 1 thinks for 958 units
+Philosopher 0 thinks for 995 units
+Philosopher 0 wants left chopstick
+Philosopher 0 has left chopstick
+Philosopher 0 wants right chopstick
+Philosopher 0 has right chopstick
+Philosopher 3 eats for 802 units
+Philosopher 3 releases right chopstick
+Philosopher 3 releases left chopstick
+Philosopher 4 wants left chopstick
+Philosopher 2 wants right chopstick
+Philosopher 4 has left chopstick
+Philosopher 2 has right chopstick
+Philosopher 3 thinks for 400 units
+Philosopher 0 eats for 769 units
+Philosopher 0 releases right chopstick
+Philosopher 0 releases left chopstick
+Philosopher 4 wants right chopstick
+Philosopher 4 has right chopstick
+Philosopher 0 thinks for 351 units
+Philosopher 2 eats for 981 units
+Philosopher 2 releases right chopstick
+Philosopher 2 releases left chopstick
+Philosopher 1 wants left chopstick
+Philosopher 1 has left chopstick
+Philosopher 1 wants right chopstick
+Philosopher 1 has right chopstick
+Philosopher 1 eats for 235 units
+Philosopher 1 releases right chopstick
+Philosopher 1 releases left chopstick
+Philosopher 1 thinks for 164 units......
+
+Scenario 3: Large Thinking and Eating Times
+
+Parameters: 5 0 1 1 0
+
+Output:
+Philosopher 4 thinks for 333 units
+Philosopher 4 wants left chopstick
+Philosopher 4 has left chopstick
+Philosopher 4 wants right chopstick
+Philosopher 4 has right chopstick
+Philosopher 3 thinks for 768 units
+Philosopher 4 eats for 431 units
+Philosopher 4 releases right chopstick
+Philosopher 4 releases left chopstick
+Philosopher 3 wants left chopstick
+Philosopher 3 has left chopstick.........
+
+Observations:
+- This scenario involves philosophers with large thinking and eating times.
+- Each philosopher goes through a thinking phase before attempting to eat.
+- The output demonstrates the process of philosophers attempting to acquire chopsticks, eating, and then releasing the chopsticks.
+- Despite the long thinking and eating times, the system manages the philosophers' interactions effectively, allowing them to take turns eating without deadlock.
